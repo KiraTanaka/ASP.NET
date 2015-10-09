@@ -1,6 +1,17 @@
-﻿@{
+﻿@model ASP.NET.Models.HomeModel
+
+@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HELLO WORLD!</h2>
+<h2>Index</h2>
+@using (Html.BeginForm("Index","Home")) { 
+    @Html.TextBoxFor(x=>x.Num1)
+    @Html.TextBoxFor(x=>x.Action)
+    @Html.TextBoxFor(x=>x.Num2)
+    <input type="submit" value="Poschitai"/>
+}
+@if (!string.IsNullOrWhiteSpace(ViewBag.Result)) {
+    <p>Result = @ViewBag.Result</p>
+    <p>Home = @ViewBag.Home</p>
+}
